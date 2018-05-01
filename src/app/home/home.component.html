@@ -1,0 +1,60 @@
+﻿<!-- header start -->
+<div class="container page-header pb-5" id="profile-header">
+
+  <div class="row justify-content-between" >
+    <div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div>
+    <div class="col-sm-2">
+      <div class=" avatar"></div>
+    </div>
+
+    <div class="col-sm-1">
+      <h5><a [routerLink]="['/user-profile']" class="">{{currentUser.first_name}}</a></h5>
+      <p><a [routerLink]="['/login']">Logout</a></p>
+    </div>
+  </div>
+
+</div>
+<!-- header end -->
+<!-- body start -->
+<div class="container ">
+    <div class="row justify-content-center pb-5">
+      <div class="col-sm-6"><h3 class="display-4">Administration page</h3></div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead class="thead-default">
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>About</th>
+            <th>Company</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Tags interested in</th>
+            <th>Ideas</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.user_id}}</th>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.about_user}}</td>
+            <td>{{user.about_company}}</td>
+            <td>{{user.city}}</td>
+            <td>{{user.country}}</td>
+            <td>{{user.tags_intrested_in}}</td>
+            <td>...</td>
+            <td class="text-danger" (click)="deleteUser(user.user_id)">&#10007;</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+<!-- body end-->
