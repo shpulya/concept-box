@@ -12,12 +12,12 @@ export class RegisterComponent {
     model: any = {};
     loading = false;
 
-    constructor(
+      constructor(
         private router: Router,
         private userService: UserService,
         private alertService: AlertService) { }
 
-    register() {
+      register() {
         this.loading = true;
 
         this.userService.create(this.model)

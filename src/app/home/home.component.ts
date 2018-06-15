@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-
+import {Router} from '@angular/router';
 import { User } from '../_models/index';
 import { UserService } from '../_services/index';
 
@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
         this.loadAllUsers();
     }
 
-    deleteUser(user_id: number) {
-        this.userService.delete(user_id).subscribe(() => { this.loadAllUsers(); });
+    deleteUser(id: number) {
+        this.userService.delete(id).subscribe(() => { this.loadAllUsers(); });
     }
 
     private loadAllUsers() {

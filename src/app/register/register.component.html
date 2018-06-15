@@ -1,8 +1,12 @@
 ﻿<!-- header start -->
 <div class="container page-header">
   <div class="row  pb-5">
-    <div class="col-4"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div>
-    <div class="col-8 "><img src="../assets/img/line.png" alt="" class="img-thumbnail "/></div>
+    <div class="col-lg-4">
+      <a [routerLink]="['/main-page']" class="logo"><div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div></a>
+    </div>
+    <div class="col-lg-8">
+      <img src="../assets/img/line.png" alt="" class="img-thumbnail "/>
+    </div>
   </div>
 </div>
 <!-- header end -->
@@ -15,7 +19,7 @@
       <div class="col-sm-6 "><h3 class="display-4">Registration Form</h3></div>
     </div>
 
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center" >
       <div class="col-sm-2">
         <div class=" avatar"></div>
         <!--<div class=" col-sm-1">
@@ -23,70 +27,69 @@
         </div>-->
       </div>
     </div>
-    <div class="form-group  row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-      <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+    <div class="form-group  row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
+      <label for="inputFirstName" class="col-sm-2 control-label">First Name<span style="color: red">*</span></label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="inputFirstName" placeholder="Enter your first name" [(ngModel)]="model.first_name" #first_name="ngModel" required />
-        <div *ngIf="f.submitted && !first_name.valid" class="help-block text-danger">First Name is required</div>
+        <input type="text" class="form-control" name="inputFirstName" placeholder="Enter your first name" [(ngModel)]="model.firstName" #firstName="ngModel" required />
+        <div *ngIf="f.submitted && !firstName.valid" class="help-block text-danger">First Name is required</div>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+      <label for="inputLastName" class="col-sm-2 control-label">Last Name<span style="color: red">*</span></label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" name="inputLastName" placeholder="Enter your last name" [(ngModel)]="model.lastName" #lastName="ngModel" required />
+        <div *ngIf="f.submitted && !lastName.valid" class="help-block text-danger">Last Name is required</div>
       </div>
     </div>
     <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-      <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+      <label for="inputEmail" class="col-sm-2 control-label">Email<span style="color: red">*</span></label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="inputLastName" placeholder="Enter your last name" [(ngModel)]="model.last_name" #last_name="ngModel" required />
-        <div *ngIf="f.submitted && !last_name.valid" class="help-block text-danger">Last Name is required</div>
-      </div>
-    </div>
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
-      <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-      <div class="col-sm-5">
-        <input type="email" class="form-control" name="inputEmail" placeholder="Enter your email" [(ngModel)]="model.email" #email="ngModel" required />
+        <input type="email" class="form-control" name="inputEmail" placeholder="Enter your email" [(ngModel)]="model.email" #email="ngModel" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" />
         <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required</div>
       </div>
     </div>
     <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-      <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+      <label for="inputPassword" class="col-sm-2 control-label">Password<span style="color: red">*</span></label>
       <div class="col-sm-5">
-        <input type="password" class="form-control" name="inputPassword" placeholder="Enter your Password" [(ngModel)]="model.password" #password="ngModel" required />
+        <input type="password" class="form-control" name="inputPassword" placeholder="Enter your Password" [(ngModel)]="model.password" #password="ngModel" required validateEqual="confirmPassword" reverse="true"/>
         <div *ngIf="f.submitted && !password.valid" class="help-block text-danger">Password is required</div>
       </div>
     </div>
-    <!--<div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-      <label for="inputPasswordConfirm" class="col-sm-2 control-label">Confirm Password</label>
+    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted &&  !confirmPassword.valid }">
+      <label for="inputPasswordConfirm" class="col-sm-2 control-label">Confirm Password<span style="color: red">*</span></label>
       <div class="col-sm-5">
-        <input type="password" class="form-control" name="inputPasswordConfirm" placeholder="Confirm your Password" [(ngModel)]="model.password" #password="ngModel" required />
-        <div *ngIf="f.submitted && !password.valid" class="help-block">Confirm your password</div>
+        <input type="password" class="form-control" name="inputPasswordConfirm" placeholder="Confirm your Password" [(ngModel)]="model.confirmPassword" validateEqual="password" #confirmPassword="ngModel" required />
+        <div *ngIf="f.submitted && !confirmPassword.valid" class="help-block text-danger">Password mismatch</div>
       </div>
     </div>
-    -->
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !aboutUser.valid }">
       <label for="describeUser" class="col-sm-2 control-label">Describe Yourself</label>
       <div class="col-sm-5">
-        <textarea class="form-control" rows="3" name="describeUser" placeholder="Describe Yourself" [(ngModel)]="model.about_user" #about_user="ngModel" ></textarea>
+        <textarea class="form-control" rows="3" name="describeUser" placeholder="Describe Yourself" [(ngModel)]="model.aboutUser" #aboutUser="ngModel" ></textarea>
       </div>
     </div>
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !aboutCompany.valid }">
       <label for="inputCompany" class="col-sm-2 control-label">Your Company</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="inputCompany" placeholder="Enter your Company"  [(ngModel)]="model.about_company" #about_company="ngModel">
+        <input type="text" class="form-control" name="inputCompany" placeholder="Enter your Company"  [(ngModel)]="model.aboutCompany" #aboutCompany="ngModel">
       </div>
     </div>
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center">
       <label for="inputCity" class="col-sm-2 control-label">Your City</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="inputCity" placeholder="Enter your City"  [(ngModel)]="model.city" #city="ngModel">
+        <input type="text" class="form-control" name="inputCity" placeholder="Enter your City"  [(ngModel)]="model.city">
       </div>
     </div>
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center">
       <label for="inputCountry" class="col-sm-2 control-label">Your Country</label>
       <div class="col-sm-5">
-        <input type="text" class="form-control" name="inputCountry" placeholder="Enter your Country"  [(ngModel)]="model.country" #country="ngModel">
+        <input type="text" class="form-control" name="inputCountry" placeholder="Enter your Country"  [(ngModel)]="model.country" >
       </div>
     </div>
-    <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+    <div class="form-group row justify-content-center">
       <label for="ChooseTags" class="col-sm-2 control-label">Choose intresting tags</label>
       <div class="col-sm-5">
-        <select multiple class="form-control" name="ChooseTags"  [(ngModel)]="model.tags_interested_in" #about_user="ngModel">
+        <select multiple class="form-control" name="ChooseTags"  [(ngModel)]="model.tags">
           <option>TECHNOLOGY</option>
           <option>DESIGN</option>
           <option>PC</option>

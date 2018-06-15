@@ -10,6 +10,7 @@ body {
 }
 a {
   cursor: pointer;
+  text-decoration:none !important;
 }
 
 center {
@@ -19,7 +20,6 @@ center {
 .footer {
   background-color: white;
   margin: 15px;
-
 }
 
 .box{
@@ -71,4 +71,16 @@ center {
 
 tr{
   cursor: pointer;
+}
+
+.dropdown-menu {
+  padding: 0 5px ;
+}
+
+.logo{
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  text-decoration:none !important;
 }

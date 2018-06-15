@@ -1,13 +1,14 @@
 ﻿export class User {
-    user_id: number;
+    id: number;
     email: string;
     password: string;
-    first_name: string;
-    last_name: string;
-    avatar_picture: string; // how to save picture in DB ???
-    about_user: string;
-    about_company: string;
+    firstName: string;
+    lastName: string;
+    avatarjPicture: string; // how to save picture in DB ???
+    aboutUser: string;
+    aboutCompany: string;
     city: string;
     country: string;
-    tags_intrested_in: string;
+    tags: string;
+    role: string
 }

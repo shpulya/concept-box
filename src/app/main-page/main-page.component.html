@@ -1,0 +1,259 @@
+
+<!-- header start -->
+<div class="container page-header pb-5" id="profile-header">
+  <div class="row justify-content-between" >
+    <div class="col-sm-9">
+      <a [routerLink]="['/main-page']" class="logo"><div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div></a>
+    </div>
+    <div class="col-sm-2">
+      <div class="avatar"></div>
+    </div>
+    <div class="col-sm-1">
+      <a [routerLink]="['/user-profile']" id="userName" >{{currentUser.first_name}}</a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a [routerLink]="['/user-profile']">Profile</a>
+          <br/>
+          <a [routerLink]="['/idea'] "  >New Idea</a>
+          <a href=""><hr/></a>
+          <a [routerLink]="['/login']">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header end -->
+
+<!-- body start -->
+<!-- As a link -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mb-4">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tag1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tag2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tag3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tag4</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                SORT BY
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Best matches</a>
+                <a class="dropdown-item" href="#">Newest</a>
+                <a class="dropdown-item" href="#">Rating</a>
+
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="container">
+        <!-- gallery -->
+        <div class="row">
+          <div class="col-lg-12 col-md-12 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a [routerLink]="['/idea-detail']" >Idea One</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div class="card-footer">
+                <p><span class="like">&#9829;&#160;</span><span class = 'like' style="color : #5a6268; display: none;">&#9825;</span>9633</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-md-12 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a [routerLink]="['/idea-detail']">Idea Two</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div class="card-footer">
+                <p><span class="like">&#9829;&#160;</span><span class = 'like' style="color : #5a6268; display: none;">&#9825;</span>33</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-md-12 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a [routerLink]="['/idea-detail']">Idea Three</a>
+                </h4>
+                <h5>$24.99</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+              </div>
+              <div class="card-footer">
+                <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+    </div>
+    <div class="col-lg-8 col-md-6 mb-4">
+      <div class="container">
+        <!-- Project One -->
+        <div class="row">
+          <div class="col-md-7">
+            <a href="#">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+            <h4 class="card-title">
+              <a [routerLink]="['/idea-detail']">Idea One</a>
+            </h4>
+            <h5>$24.99</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Two -->
+        <div class="row">
+          <div class="col-md-7">
+            <a href="#">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+            <h4 class="card-title">
+              <a [routerLink]="['/idea-detail']">Idea Two</a>
+            </h4>
+            <h5>$24.99</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Three -->
+        <div class="row">
+          <div class="col-md-7">
+            <a href="#">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+            <h4 class="card-title">
+              <a [routerLink]="['/idea-detail']">Idea Three</a>
+            </h4>
+            <h5>$24.99</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Four -->
+        <div class="row">
+
+          <div class="col-md-7">
+            <a href="#">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+            <h4 class="card-title">
+              <a [routerLink]="['/idea-detail']">Idea Four</a>
+            </h4>
+            <h5>$24.99</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Project Four -->
+        <div class="row">
+
+          <div class="col-md-7">
+            <a href="#">
+              <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+            <h4 class="card-title">
+              <a [routerLink]="['/idea-detail']">Idea Five</a>
+            </h4>
+            <h5>$24.99</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+            <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
+          </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- /.container -->
+    </div>
+  </div>
+</div>
+<!-- body end -->

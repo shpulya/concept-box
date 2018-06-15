@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers/index';
+//import { fakeBackendProvider } from './_helpers/index';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-
+import { EqualValidator } from './_directives/index';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
@@ -17,6 +17,9 @@ import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { UserProfileComponent } from './user-profile/index';
+import { IdeaComponent } from './idea/index';
+import {MainPageComponent} from './main-page';
+import {IdeaDetailComponent} from './idea-detail/index';
 
 @NgModule({
     imports: [
@@ -28,10 +31,14 @@ import { UserProfileComponent } from './user-profile/index';
     declarations: [
         AppComponent,
         AlertComponent,
+        EqualValidator,
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        IdeaComponent,
+        MainPageComponent,
+        IdeaDetailComponent
     ],
     providers: [
         AuthGuard,
@@ -42,10 +49,9 @@ import { UserProfileComponent } from './user-profile/index';
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
             multi: true
-        },
-
+        }
         // provider used to create fake backend
-        fakeBackendProvider
+   //     fakeBackendProvider
     ],
     bootstrap: [AppComponent]
 })

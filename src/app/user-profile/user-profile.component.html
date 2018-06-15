@@ -1,18 +1,26 @@
 <!-- header start -->
 <div class="container page-header pb-5" id="profile-header">
-
   <div class="row justify-content-between" >
-    <div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div>
+    <div class="col-sm-9">
+      <a [routerLink]="['/main-page']" class="logo"><div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div></a>
+    </div>
     <div class="col-sm-2">
       <div class=" avatar"></div>
     </div>
-
     <div class="col-sm-1">
-      <h5><a [routerLink]="['/user-profile']" class="">{{currentUser.first_name}}</a></h5>
-      <p><a [routerLink]="['/login']">Logout</a></p>
+      <a [routerLink]="['/user-profile']" id="userName" >{{currentUser.first_name}}</a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a [routerLink]="['/user-profile']">Profile</a>
+          <br/>
+          <a [routerLink]="['/idea'] "  >New Idea</a>
+          <a href=""><hr/></a>
+          <a [routerLink]="['/login']">Logout</a>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
 <!-- header end -->
 
@@ -20,37 +28,36 @@
 <div class="container">
   <form>
     <div class="form-group row justify-content-center">
-      <div class="col-sm-4 "><h3 class="display-4">Personal Data</h3></div>
+      <div class="col-sm-5 "><h3 class="display-4">Personal Data</h3></div>
     </div>
-
 
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">First Name</span>
-      <span  class="col-sm-2 text-info" id="user-first-name">Vasja</span>
+      <span  class="col-sm-2 text-info" id="user-first-name">{{currentUser.firstName}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">Last Name</span>
-      <span  class="col-sm-2 text-info">Pupkin</span>
+      <span  class="col-sm-2 text-info">{{currentUser.lastName}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">Email</span>
-      <span  class="col-sm-2 text-info">Vasja@gmail.com</span>
+      <span  class="col-sm-2 text-info">{{currentUser.email}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">Additionally</span>
-      <span  class="col-sm-2 text-info">Vasya is Vasya!</span>
+      <span  class="col-sm-2 text-info">{{currentUser.aboutUser}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">Company</span>
-      <span  class="col-sm-2 text-info">DataArt!</span>
+      <span  class="col-sm-2 text-info">{{currentUser.about_company}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">City</span>
-      <span  class="col-sm-2 text-info">Odessa</span>
+      <span  class="col-sm-2 text-info">{{currentUser.city}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span  class="col-sm-2  gray-text text-right">Country</span>
-      <span  class="col-sm-2 text-info">Ukraine</span>
+      <span  class="col-sm-2 text-info">{{currentUser.country}}</span>
     </div>
     <div class="container">
       <!-- gallery -->
@@ -60,7 +67,7 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Idea One</a>
+                <a [routerLink]="['/idea-detail']">Idea One</a>
               </h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -76,7 +83,7 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Idea Two</a>
+                <a [routerLink]="['/idea-detail']">Idea Two</a>
               </h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
@@ -92,7 +99,7 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">Idea Three</a>
+                <a [routerLink]="['/idea-detail']">Idea Three</a>
               </h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
@@ -103,21 +110,17 @@
           </div>
         </div>
         <div class="ides-gallery col-sm-offset-1 col-sm-2">
-
-          <button type="button" class="btn btn-light">+</button>
-
+          <button type="button" class="btn btn-light" [routerLink]="['/idea']"  target="_blank">+</button>
         </div>
       </div>
-      <!-- /.row -->
-
       <hr>
-
     </div>
     <div class="form-group row justify-content-center">
       <div class="col-sm-offset-4 col-sm-2">
         <a  [routerLink]="['/register']" class="btn-link"> Update profile!</a>
       </div>
     </div>
-
   </form>
 </div>
+
+<!-- body end -->

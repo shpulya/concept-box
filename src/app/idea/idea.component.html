@@ -1,0 +1,119 @@
+<!-- header start -->
+<div class="container page-header pb-5" id="profile-header">
+  <div class="row justify-content-between" >
+    <div class="col-sm-9">
+      <a [routerLink]="['/main-page']" class="logo"><div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div></a>
+    </div>
+    <div class="col-sm-2">
+      <div class=" avatar"></div>
+    </div>
+    <div class="col-sm-1">
+      <a [routerLink]="['/user-profile']" id="userName" >{{currentUser.first_name}}</a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+          <a [routerLink]="['/user-profile']">Profile</a>
+          <br/>
+          <a [routerLink]="['/idea'] "  >New Idea</a>
+          <a href=""><hr/></a>
+          <a [routerLink]="['/login']">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header end -->
+
+
+<!-- body start -->
+<div class="container">
+  <form (ngSubmit)="f.form.valid && addIdea()" #f="ngForm" novalidate>
+    <div class="row justify-content-center">
+      <div class="col-sm-5 "><h3 class="display-4">Add New Idea</h3></div>
+    </div>
+    <div class="form-group  row justify-content-center" >
+      <label for="inputIdeaHeader" class="col-sm-2 control-label">Header</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" name="inputIdeaHeader" placeholder="Enter idea header" [(ngModel)]="model.header" #first_name="ngModel" required />
+      </div>
+    </div>
+    <div class="form-group  row justify-content-center" >
+      <label for="inputShortDescription" class="col-sm-2 control-label">Short Description</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" name="inputShortDescription" placeholder="Enter short description" [(ngModel)]="model.short_description" #inputShortDescription="ngModel" required />
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <label for="inputFullDescription" class="col-sm-2 control-label">Full Description</label>
+      <div class="col-sm-5">
+        <textarea class="form-control" rows="3" id="inputFullDescription" placeholder="Describe Your Idea"></textarea>
+      </div>
+    </div>
+    <div class="form-group row justify-content-center">
+      <label for="ChooseTagsForIdea" class="col-sm-2 control-label">Choose tags</label>
+      <div class="col-sm-5">
+        <select multiple class="form-control" id="ChooseTagsForIdea">
+          <option>TECHNOLOGY</option>
+          <option>DESIGN</option>
+          <option>PC</option>
+          <option>MEDIA</option>
+        </select>
+      </div>
+    </div>
+    <div class="container">
+      <!-- gallery -->
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Idea's splash screen">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
+          </a>
+        </div>
+        <div class="ides-gallery col-sm-offset-1 col-sm-2">
+          <button type="button" class="btn btn-light">+</button>
+        </div>
+      </div>
+      <!-- /.row -->
+      <hr>
+    </div>
+    <div class="form-group row justify-content-center">
+      <div class="col-sm-2">
+        <button type="submit" class="btn btn-secondary" [disabled]="loading" (click)="setNewIdea()">Add</button>
+        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" class="img-thumbnail"/>
+      </div>
+      <div class=" col-sm-2">
+        <h5><a [routerLink]="['/login']" class="btn-link">Cancel</a></h5>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- body end -->
