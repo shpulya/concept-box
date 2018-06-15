@@ -9,11 +9,15 @@ import { UserService } from '../_services/index';
 })
 
 export class HomeComponent implements OnInit {
-    currentUser: User;
+    email: string;
+
     users: User[] = [];
 
     constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+        this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
+        console.log('current user'+this.email);
+
     }
 
     ngOnInit() {

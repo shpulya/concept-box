@@ -27,4 +27,10 @@ export class UserService {
     delete(id: number) {
         return this.http.delete(environment.apiUrl+'/api/v1/user/' + id);
     }
+
+    getUserByEmail(email: string) {
+      return this.http.get( environment.apiUrl+'/api/v1/getUserByEmail/' + email );
+    }
+
+
 }

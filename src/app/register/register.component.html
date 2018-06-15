@@ -45,7 +45,7 @@
       <label for="inputEmail" class="col-sm-2 control-label">Email<span style="color: red">*</span></label>
       <div class="col-sm-5">
         <input type="email" class="form-control" name="inputEmail" placeholder="Enter your email" [(ngModel)]="model.email" #email="ngModel" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" />
-        <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required</div>
+        <div *ngIf="f.submitted && !email.valid" class="help-block text-danger">Email is required and format should be <i>john@doe.com</i></div>
       </div>
     </div>
     <div class="form-group row justify-content-center" [ngClass]="{ 'has-error': f.submitted && !password.valid }">

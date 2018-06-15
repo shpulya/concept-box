@@ -9,7 +9,7 @@
       <div class="avatar"></div>
     </div>
     <div class="col-sm-1">
-      <a [routerLink]="['/user-profile']" id="userName" >{{currentUser.first_name}}</a>
+      <a [routerLink]="['/user-profile']" id="userName" >{{email}}</a>
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
@@ -46,6 +46,7 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Tag4</a>
             </li>
+            <!--
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 SORT BY
@@ -57,6 +58,7 @@
 
               </div>
             </li>
+            -->
           </ul>
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -69,50 +71,18 @@
       <div class="container">
         <!-- gallery -->
         <div class="row">
-          <div class="col-lg-12 col-md-12 mb-4">
+          <div class="col-lg-12 col-md-12 mb-4" *ngFor="let idea of ideas">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a [routerLink]="['/idea-detail']" >Idea One</a>
+                  <a [routerLink]="['/idea-detail']" >{{idea.header}}</a>
                 </h4>
                 <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <p class="card-text">{{idea.shortDescription}}</p>
               </div>
               <div class="card-footer">
                 <p><span class="like">&#9829;&#160;</span><span class = 'like' style="color : #5a6268; display: none;">&#9825;</span>9633</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12 col-md-12 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a [routerLink]="['/idea-detail']">Idea Two</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <p><span class="like">&#9829;&#160;</span><span class = 'like' style="color : #5a6268; display: none;">&#9825;</span>33</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-12 col-md-12 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a [routerLink]="['/idea-detail']">Idea Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <p><span class = 'like' style="color : #5a6268;">&#9825;</span>33</p>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ import { EqualValidator } from './_directives/index';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
 import { JwtInterceptor } from './_helpers/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, IdeaService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
@@ -45,6 +45,7 @@ import {IdeaDetailComponent} from './idea-detail/index';
         AlertService,
         AuthenticationService,
         UserService,
+        IdeaService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: JwtInterceptor,
