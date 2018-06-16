@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import { User, Idea } from '../_models/index';
-import { AlertService, UserService, IdeaService } from '../_services/index';
+import {User, Idea} from '../_models/index';
+import {AlertService, UserService, IdeaService} from '../_services/index';
 
 @Component({
   moduleId: module.id.toString(),
@@ -14,27 +14,28 @@ export class UserProfileComponent implements OnInit {
   ideas: Idea[] = [];
 
 
-  constructor(private router: Router,private alertService: AlertService,private userService: UserService, private ideaService: IdeaService) {
-    this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
+  constructor(private router: Router, private alertService: AlertService, private userService: UserService, private ideaService: IdeaService) {
+    //   this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
 
-    this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
+    //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
 
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.LoadUser();
+    //   this.LoadUser();
     this.LoadIdeasByUser();
 
   }
 
-  private LoadUser () {
+  // private LoadUser () {
 
-    console.log(this.currentUser);
-    this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
-  }
+  //  console.log(this.currentUser);
+  //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
+  // }
 
-  private LoadIdeasByUser () {
-    this.ideaService.getIdeasByUserId(this.currentUser.id).subscribe( ideas => {this.ideas = ideas; });
+  private LoadIdeasByUser() {
+    //   this.ideaService.getIdeasByUserId(this.currentUser.id).subscribe( ideas => {this.ideas = ideas; });
   }
 
 }

@@ -1,34 +1,42 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import { User } from '../_models/index';
-import { UserService } from '../_services/index';
+import {User} from '../_models/index';
+import {UserService} from '../_services/index';
 
 @Component({
-    moduleId: module.id.toString(),
-    templateUrl: 'home.component.html'
+  moduleId: module.id.toString(),
+  templateUrl: 'home.component.html'
+
 })
 
 export class HomeComponent implements OnInit {
-    email: string;
+  email: string;
 
-    users: User[] = [];
+  users: User[] = [];
+  currentUser: User;
 
-    constructor(private userService: UserService) {
+  constructor(private userService: UserService) {
 
-        this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
-        console.log('current user'+this.email);
+    //  this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.email = this.currentUser.email;
+    console.log('current user' + this.email);
 
-    }
+  }
 
-    ngOnInit() {
-        this.loadAllUsers();
-    }
+  ngOnInit() {
+    this.loadAllUsers();
+  }
 
-    deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers(); });
-    }
+  deleteUser(id: number) {
+    this.userService.delete(id).subscribe(() => {
+      this.loadAllUsers();
+    });
+  }
 
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
-    }
+  private loadAllUsers() {
+    this.userService.getAll().subscribe(users => {
+      this.users = users;
+    });
+  }
 }

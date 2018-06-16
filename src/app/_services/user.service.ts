@@ -17,7 +17,7 @@ export class UserService {
 
     create(user: User) {
         //user = {id: 11, name: "Test", country: "ua", role: "ROLE_USER", password: "123"};
-        return this.http.post(environment.apiUrl+'/api/v1/user', user);
+        return this.http.post(environment.apiUrl+'/api/v1/registration', user);
     }
 
     update(user: User) {

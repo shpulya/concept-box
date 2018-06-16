@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { NgModule, ErrorHandler } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertService, UserService, IdeaService} from '../_services/index';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {Idea, User} from '../_models';
 
-
-@Component ({
+@Component({
   moduleId: module.id.toString(),
   templateUrl: './idea.component.html'
 })
 
-export class IdeaComponent   {
+export class IdeaComponent {
 
   email: string;
   currentUser: User;
@@ -24,13 +23,15 @@ export class IdeaComponent   {
     private userService: UserService,
     private alertService: AlertService) {
 
-    this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
+    // this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.email = this.currentUser.email;
   }
 
   addIdea() {
     this.loading = true;
-    this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
-    this.model.id = this.currentUser.id;
+    //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
+    this.model.userId = this.currentUser.id;
     console.log(this.model);
     console.log(this.currentUser.id);
     this.ideaService.createIdea(this.model)

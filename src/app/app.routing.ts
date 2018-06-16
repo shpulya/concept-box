@@ -16,7 +16,7 @@ const appRoutes: Routes = [
     { path: 'user-profile', component: UserProfileComponent},
     { path: 'idea', component: IdeaComponent},
     { path: 'main-page', component: MainPageComponent},
-    { path: 'idea-detail', component: IdeaDetailComponent},
+    { path: 'idea-detail/:id', component: IdeaDetailComponent},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
