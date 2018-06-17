@@ -67,48 +67,17 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a [routerLink]="['/idea-detail']">{{idea.header}}</a>
+                <a [routerLink]="['/idea-detail/'+idea.id]">{{idea.header}}</a>
               </h4>
-              <h5>$24.99</h5>
+              <h5>${{idea.price}}</h5>
               <p class="card-text">{{idea.fullDescription}}</p>
             </div>
             <div class="card-footer">
-              <p>&#9829;&#160;9633</p>
+              <p>&#9825;&#160;{{idea.rate}}</p>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a [routerLink]="['/idea-detail']">Idea Two</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div class="card-footer">
-              <p class="text-muted">&#9829;&#160;0</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-            <div class="card-body">
-              <h4 class="card-title">
-                <a [routerLink]="['/idea-detail']">Idea Three</a>
-              </h4>
-              <h5>$24.99</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-            </div>
-            <div class="card-footer">
-              <p class="text-muted">&#9829;&#160;0</p>
-            </div>
-          </div>
-        </div>
         <div class="ides-gallery col-sm-offset-1 col-sm-2">
           <button type="button" class="btn btn-light" [routerLink]="['/idea']"  target="_blank">+</button>
         </div>

@@ -38,6 +38,19 @@
       </div>
     </div>
     <div class="form-group  row justify-content-center" >
+      <label for="inputShortDescription" class="col-sm-2 control-label">Price, $</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control col-sm-10" name="inputPrice" placeholder="" [(ngModel)]="model.price" #price="ngModel" pattern="^[0-9]+$" required />
+      </div>
+      <span class="col-sm-3"></span>
+    </div>
+
+    <div *ngIf="f.submitted && !price.valid" class="form-group  row justify-content-center">
+      <span class="col-sm-2"></span>
+      <div  class="help-block text-danger col-sm-5">Enter the correct price</div>
+    </div>
+
+    <div class="form-group  row justify-content-center" >
       <label for="inputShortDescription" class="col-sm-2 control-label">Short Description</label>
       <div class="col-sm-5">
         <input type="text" class="form-control" name="inputShortDescription" placeholder="Enter short description" [(ngModel)]="model.shortDescription" #ShortDescription="ngModel" required />
@@ -64,42 +77,44 @@
       <!-- gallery -->
       <div class="row">
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Idea's splash screen">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add Idea's splash screen">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300/bad8d7" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
+            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300/" alt="">
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-4 col-xs-6">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
         </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
+          <a href="#" class="d-block mb-4 h-100" data-toggle="tooltip" title="Add photo">
             <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
           </a>
-        </div>
-        <div class="col-lg-3 col-md-4 col-xs-6">
-          <a href="#" class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="">
-          </a>
-        </div>
-        <div class="ides-gallery col-sm-offset-1 col-sm-2">
-          <button type="button" class="btn btn-light">+</button>
         </div>
       </div>
       <!-- /.row -->

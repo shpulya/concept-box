@@ -15,10 +15,6 @@ export class UserProfileComponent implements OnInit {
 
 
   constructor(private router: Router, private alertService: AlertService, private userService: UserService, private ideaService: IdeaService) {
-    //   this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
-
-    //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
-
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
@@ -28,14 +24,8 @@ export class UserProfileComponent implements OnInit {
 
   }
 
-  // private LoadUser () {
-
-  //  console.log(this.currentUser);
-  //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
-  // }
-
   private LoadIdeasByUser() {
-    //   this.ideaService.getIdeasByUserId(this.currentUser.id).subscribe( ideas => {this.ideas = ideas; });
+    this.ideaService.getIdeasByUserId(this.currentUser.id).subscribe( ideas => {this.ideas = ideas; });
   }
 
 }

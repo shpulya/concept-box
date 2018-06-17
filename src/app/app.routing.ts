@@ -8,6 +8,7 @@ import {UserProfileComponent} from './user-profile';
 import {IdeaComponent} from './idea/index';
 import {MainPageComponent} from './main-page';
 import {IdeaDetailComponent} from './idea-detail';
+import {UserIdeasComponent} from './user-ideas';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     { path: 'idea', component: IdeaComponent},
     { path: 'main-page', component: MainPageComponent},
     { path: 'idea-detail/:id', component: IdeaDetailComponent},
+    { path:"user-ideas/:userId", component: UserIdeasComponent},
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

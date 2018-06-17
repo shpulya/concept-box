@@ -18,7 +18,7 @@ export class IdeaDetailComponent {
   idea: any ={};
   currentUser: User;
   userId: number;
-  author: User;
+  author: any = {};
   private routeSubscription: Subscription;
 
   constructor(
@@ -27,14 +27,15 @@ export class IdeaDetailComponent {
     private userService: UserService,
     private alertService: AlertService,
     private route: ActivatedRoute) {
-    //this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.email = this.currentUser.email;
     this.routeSubscription = route.params.subscribe(params => this.ideaId = params['id']);
+    this.ideaService.getIdeaById(this.ideaId).subscribe(idea => {this.idea = idea;});
 
-    this.ideaService.getIdeaById(this.ideaId).subscribe(idea => {
-      this.idea = idea;
-    });
+    //this.userService.getById(this.idea.userId).subscribe(author => {this.author=author;});
+
+
+
     //this.userId = this.idea.userId;
     // this.userService.getById(this.userId).subscribe(user => {
     //   this.author = user;

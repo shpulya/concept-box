@@ -27,7 +27,7 @@
 <!-- body start -->
 <div class="container ">
     <div class="row justify-content-center pb-5">
-      <div class="col-sm-6"><h3 class="display-4">Administration page</h3></div>
+      <div class="col-sm-6"><h3 class="display-4">List of users</h3></div>
     </div>
     <div class="row justify-content-center">
       <div class="col-sm-12">
@@ -55,12 +55,29 @@
             <td>{{user.lastName}}</td>
             <td>{{user.email}}</td>
             <td>{{user.aboutUser}}</td>
-            <td>{{user.about_company}}</td>
+            <td>{{user.aboutCompany}}</td>
             <td>{{user.city}}</td>
             <td>{{user.country}}</td>
             <td>{{user.tags}}</td>
-            <td>...</td>
-            <td>{{user.role}}</td>
+            <td><a [routerLink]="['/user-ideas/'+user.id]">...</a></td>
+            <td>{{user.role}}
+              <!--
+              <fieldset class="form-group">
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="Admin" *ngIf="user.role=='ROLE_ADMIN">
+                    Admin
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="User">
+                    User
+                  </label>
+                </div>
+              </fieldset>
+              -->
+            </td>
             <td class="text-danger" (click)="deleteUser(user.id)">&#10007;</td>
           </tr>
           </tbody>

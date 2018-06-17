@@ -17,6 +17,7 @@ export class IdeaComponent {
   model: any = {};
   loading = false;
 
+
   constructor(
     private router: Router,
     private ideaService: IdeaService,
@@ -30,14 +31,17 @@ export class IdeaComponent {
 
   addIdea() {
     this.loading = true;
-    //this.userService.getUserByEmail(this.email).subscribe(user => { this.currentUser = user; });
     this.model.userId = this.currentUser.id;
+    this.model.status = "NEW";
+    this.model.tags = JSON.stringify(this.model.tags);
+
     console.log(this.model);
     console.log(this.currentUser.id);
+
     this.ideaService.createIdea(this.model)
       .subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
+          this.alertService.success('Idea was created successfully!', true);
           this.router.navigate(['/user-profile']);
         },
         error => {

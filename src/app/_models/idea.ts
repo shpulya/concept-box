@@ -8,4 +8,8 @@ export class Idea {
   shortDescription: string;
   fullDescription: string;
   pictureList: string;
+  price: number;
+  creationDate: number;
+  rate: number;
+  creationDate: number;
 }

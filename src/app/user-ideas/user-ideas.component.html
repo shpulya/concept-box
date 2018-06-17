@@ -1,0 +1,69 @@
+<!-- header start -->
+<div class="container page-header pb-5" id="profile-header">
+  <div class="row justify-content-between">
+    <div class="col-sm-9">
+      <a [routerLink]="['/main-page']" class="logo">
+        <div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div>
+      </a>
+    </div>
+    <div class="col-sm-2">
+      <div class=" avatar"></div>
+    </div>
+    <div class="col-sm-1">
+      <a [routerLink]="['/user-profile']" id="userName">{{currentUser.email}}</a>
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a [routerLink]="['/user-profile']">Profile</a>
+          <br/>
+          <a [routerLink]="['/idea'] ">New Idea</a>
+          <a href="">
+            <hr/>
+          </a>
+          <a [routerLink]="['/login']">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- header end -->
+
+<!-- body start -->
+<div class="container ">
+  <div class="row justify-content-center pb-5">
+    <div class="col-sm-12"><h3 class="display-5">List of ideas by {{currentUser.firstName}}
+      {{currentUser.lastName}}</h3></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <table class="table">
+        <thead class="thead-default">
+        <tr>
+          <th>#</th>
+          <th>Header</th>
+          <th>Data Created</th>
+          <th>Rate</th>
+          <th>Price</th>
+          <th>Tags</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let idea of ideas">
+          <td>{{idea.id}}</td>
+          <td><a [routerLink]="['/idea-detail/'+idea.id]">{{idea.header}}</a></td>
+          <td>{{idea.creationDate}}</td>
+          <td>{{idea.rate}}</td>
+          <td>{{idea.price}}</td>
+          <td>{{idea.tags}}</td>
+          <td>{{idea.status}}</td>
+          <td class="text-success" (click)="updateIdea(idea.id,idea)">&#10003;</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- body end-->

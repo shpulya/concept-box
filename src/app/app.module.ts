@@ -20,6 +20,7 @@ import { UserProfileComponent } from './user-profile/index';
 import { IdeaComponent } from './idea/index';
 import {MainPageComponent} from './main-page';
 import {IdeaDetailComponent} from './idea-detail/index';
+import {UserIdeasComponent} from './user-ideas';
 
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import {IdeaDetailComponent} from './idea-detail/index';
         UserProfileComponent,
         IdeaComponent,
         MainPageComponent,
-        IdeaDetailComponent
+        IdeaDetailComponent,
+        UserIdeasComponent
     ],
     providers: [
         AuthGuard,

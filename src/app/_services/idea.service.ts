@@ -16,14 +16,14 @@ export class IdeaService {
   }
 
   getIdeasByUserId(userId: number) {
-    return this.http.get( environment.apiUrl+'/api/v1/getIdeasByUserId' + userId);
+    return this.http.get( environment.apiUrl+'/api/v1/getIdeasByUserId/' + userId);
   }
 
   createIdea(idea: Idea) {
     return this.http.post(environment.apiUrl+'/api/v1/idea', idea);
   }
 
-  update(idea: Idea) {
+  update(id:number, idea: Idea) {
     return this.http.put(environment.apiUrl+'/api/v1/idea/' + idea.id, idea);
   }
 
