@@ -11,5 +11,4 @@ export class Idea {
   price: number;
   creationDate: number;
   rate: number;
-  creationDate: number;
 }
