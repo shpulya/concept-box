@@ -34,6 +34,7 @@
   <div class="row justify-content-center pb-5">
     <div class="col-sm-12"><h3 class="display-5">List of ideas by {{currentUser.firstName}}
       {{currentUser.lastName}}</h3></div>
+    <hr>
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-12">
@@ -45,8 +46,8 @@
           <th>Data Created</th>
           <th>Rate</th>
           <th>Price</th>
-          <th>Tags</th>
           <th>Status</th>
+          <th></th>
           <th></th>
         </tr>
         </thead>
@@ -57,9 +58,9 @@
           <td>{{idea.creationDate}}</td>
           <td>{{idea.rate}}</td>
           <td>{{idea.price}}</td>
-          <td>{{idea.tags}}</td>
           <td>{{idea.status}}</td>
           <td class="text-success" (click)="updateIdea(idea.id,idea)">&#10003;</td>
+          <td class="text-danger" (click)="deleteIdea(idea.id)">&#10007;</td>
         </tr>
         </tbody>
       </table>

@@ -13,8 +13,8 @@ import {Subscription} from 'rxjs/Subscription';
 })
 
 export class UserIdeasComponent implements OnInit {
-  users: User[] = [];
-  ideas: Idea[] = [];
+  users: User[];
+  ideas: any =[];
   currentUser: User;
   private routeSubscription: Subscription;
   userId: number;
@@ -35,6 +35,10 @@ export class UserIdeasComponent implements OnInit {
     this.ideaService.update(id,idea).subscribe(() => {
       this.loadAllIdeas();
     });
+  }
+
+  deleteIdea(id:number){
+    this.ideaService.delete(id).subscribe(() => this.loadAllIdeas());
   }
 
   private loadAllIdeas() {

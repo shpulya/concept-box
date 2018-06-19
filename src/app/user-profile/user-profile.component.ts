@@ -11,7 +11,7 @@ import {AlertService, UserService, IdeaService} from '../_services/index';
 export class UserProfileComponent implements OnInit {
   email: string;
   currentUser: User;
-  ideas: Idea[] = [];
+  ideas: any = [];
 
 
   constructor(private router: Router, private alertService: AlertService, private userService: UserService, private ideaService: IdeaService) {

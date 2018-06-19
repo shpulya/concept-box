@@ -1,21 +1,26 @@
 <!-- header start -->
 <div class="container page-header pb-5" id="profile-header">
-  <div class="row justify-content-between" >
+  <div class="row justify-content-between">
     <div class="col-sm-9">
-      <a [routerLink]="['/main-page']" class="logo"><div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div></a>
+      <a [routerLink]="['/main-page']" class="logo">
+        <div class="col-sm-9"><p><span class="donovan-font">CONCEPT</span><span class="box">BOX</span></p></div>
+      </a>
     </div>
     <div class="col-sm-2">
       <div class=" avatar"></div>
     </div>
     <div class="col-sm-1">
-      <a [routerLink]="['/user-profile']" id="userName" >{{currentUser.email}}</a>
+      <a [routerLink]="['/user-profile']" id="userName">{{currentUser.email}}</a>
       <div class="dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-        <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a [routerLink]="['/user-profile']">Profile</a>
           <br/>
-          <a [routerLink]="['/idea'] "  >New Idea</a>
-          <a href=""><hr/></a>
+          <a [routerLink]="['/idea'] ">New Idea</a>
+          <a href="">
+            <hr/>
+          </a>
           <a [routerLink]="['/login']">Logout</a>
         </div>
       </div>
@@ -28,36 +33,36 @@
 <div class="container">
   <form>
     <div class="form-group row justify-content-center">
-      <div class="col-sm-5 "><h3 class="display-4">Personal Data</h3></div>
+      <div class="col-sm-12 justify-content-center "><h3 class="display-5">Personal Data</h3></div>
     </div>
-
+    <hr>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">First Name</span>
-      <span  class="col-sm-2 text-info" id="user-first-name">{{currentUser.firstName}}</span>
-    </div>
-    <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">Last Name</span>
-      <span  class="col-sm-2 text-info">{{currentUser.lastName}}</span>
+      <span class="col-sm-2  gray-text text-right">First Name</span>
+      <span class="col-sm-2 text-info" id="user-first-name">{{currentUser.firstName}}</span>
     </div>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">Email</span>
-      <span  class="col-sm-2 text-info">{{currentUser.email}}</span>
+      <span class="col-sm-2  gray-text text-right">Last Name</span>
+      <span class="col-sm-2 text-info">{{currentUser.lastName}}</span>
     </div>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">Additionally</span>
-      <span  class="col-sm-2 text-info">{{currentUser.aboutUser}}</span>
+      <span class="col-sm-2  gray-text text-right">Email</span>
+      <span class="col-sm-2 text-info">{{currentUser.email}}</span>
     </div>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">Company</span>
-      <span  class="col-sm-2 text-info">{{currentUser.aboutCompany}}</span>
+      <span class="col-sm-2  gray-text text-right">Additionally</span>
+      <span class="col-sm-2 text-info">{{currentUser.aboutUser}}</span>
     </div>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">City</span>
-      <span  class="col-sm-2 text-info">{{currentUser.city}}</span>
+      <span class="col-sm-2  gray-text text-right">Company</span>
+      <span class="col-sm-2 text-info">{{currentUser.aboutCompany}}</span>
     </div>
     <div class="form-group row justify-content-center">
-      <span  class="col-sm-2  gray-text text-right">Country</span>
-      <span  class="col-sm-2 text-info">{{currentUser.country}}</span>
+      <span class="col-sm-2  gray-text text-right">City</span>
+      <span class="col-sm-2 text-info">{{currentUser.city}}</span>
+    </div>
+    <div class="form-group row justify-content-center">
+      <span class="col-sm-2  gray-text text-right">Country</span>
+      <span class="col-sm-2 text-info">{{currentUser.country}}</span>
     </div>
     <div class="container">
       <!-- gallery -->
@@ -70,7 +75,7 @@
                 <a [routerLink]="['/idea-detail/'+idea.id]">{{idea.header}}</a>
               </h4>
               <h5>${{idea.price}}</h5>
-              <p class="card-text">{{idea.fullDescription}}</p>
+              <p class="card-text">{{idea.shortDescription}}</p>
             </div>
             <div class="card-footer">
               <p>&#9825;&#160;{{idea.rate}}</p>
@@ -79,14 +84,14 @@
         </div>
 
         <div class="ides-gallery col-sm-offset-1 col-sm-2">
-          <button type="button" class="btn btn-light" [routerLink]="['/idea']"  target="_blank">+</button>
+          <button type="button" class="btn btn-light" [routerLink]="['/idea']" target="_blank">+</button>
         </div>
       </div>
       <hr>
     </div>
     <div class="form-group row justify-content-center">
       <div class="col-sm-offset-4 col-sm-2">
-        <a  [routerLink]="['/register']" class="btn-link"> Update profile!</a>
+        <a [routerLink]="['/register']" class="btn-link"> Update profile!</a>
       </div>
     </div>
   </form>

@@ -1,2 +1,3 @@
 ﻿export * from './alert.component';
-export * from './equal-validator.directive'
+export * from './equal-validator.directive';
+

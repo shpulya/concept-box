@@ -30,4 +30,8 @@ export class IdeaService {
   delete(id: number) {
     return this.http.delete(environment.apiUrl+'/api/v1/idea/' + id);
   }
+
+  getIdeasByHeader(word: string){
+    return this.http.get(environment.apiUrl+'/api/v1/getIdeasByHeader/'+word);
+  }
 }

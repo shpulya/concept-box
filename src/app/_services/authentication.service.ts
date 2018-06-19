@@ -13,11 +13,12 @@ export class AuthenticationService {
 
   login(email: string, password: string) {
 
+    let pass = btoa(email + ':' + password);
     let headers = new HttpHeaders()
-      .set('Authorization', 'Basic ' + btoa(email + ':' + password))
+      .set('Authorization', 'Basic ' + pass)
       .set('Content-Type', 'application/json');
-    console.log(btoa(email + ':' + password));
-    return this.http.get(environment.apiUrl + '/api/v1/getUserByEmail/' + email, {headers: headers})
+    console.log(pass);
+    return this.http.get(environment.apiUrl + '/api/v1/users', {headers: headers})
       .map(res => {
         // login successful if there's a jwt token in the response
         if (res) {
@@ -27,7 +28,7 @@ export class AuthenticationService {
 
           //user.password = btoa(email + ':' + password);
           localStorage.setItem('currentUser', JSON.stringify(res));
-          localStorage.setItem('authHeader', JSON.stringify(btoa(email + ':' + password)));
+          localStorage.setItem('authHeader', JSON.stringify(pass));
           return true;
         }
       });
