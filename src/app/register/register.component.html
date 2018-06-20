@@ -88,11 +88,8 @@
     <div class="form-group row justify-content-center">
       <label for="ChooseTags" class="col-sm-2 control-label">Choose intresting tags</label>
       <div class="col-sm-5">
-        <select multiple class="form-control" name="ChooseTags"  [(ngModel)]="model.tags">
-          <option>TECHNOLOGY</option>
-          <option>DESIGN</option>
-          <option>PC</option>
-          <option>MEDIA</option>
+        <select multiple class="form-control" id="ChooseTagsForIdea" [(ngModel)]="model.tags" #tags="ngModel" name="tagsSelector" >
+          <option *ngFor="let tag of tagsList " [value]="tag.name"> {{tag.name}}</option>
         </select>
       </div>
     </div>

@@ -18,7 +18,7 @@ export class AuthenticationService {
       .set('Authorization', 'Basic ' + pass)
       .set('Content-Type', 'application/json');
     console.log(pass);
-    return this.http.get(environment.apiUrl + '/api/v1/users', {headers: headers})
+    return this.http.get(environment.apiUrl + '/api/v1/login', {headers: headers})
       .map(res => {
         // login successful if there's a jwt token in the response
         if (res) {
