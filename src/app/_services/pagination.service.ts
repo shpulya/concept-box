@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class PagerService {
-  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 4) {
+  getPager(totalItems: number, currentPage: number = 1, pageSize: number = 8) {
     // calculate total pages
     let totalPages = Math.ceil(totalItems / pageSize);
 
@@ -14,7 +14,7 @@ export class PagerService {
     }
 
     let startPage: number, endPage: number;
-    if (totalPages <= 4) {
+    if (totalPages <= 8) {
       // less than 10 total pages so show all
       startPage = 1;
       endPage = totalPages;
@@ -22,8 +22,8 @@ export class PagerService {
       // more than 10 total pages so calculate start and end pages
       if (currentPage <= 6) {
         startPage = 1;
-        endPage = 4;
-      } else if (currentPage + 4 >= totalPages) {
+        endPage = 8;
+      } else if (currentPage + 8 >= totalPages) {
         startPage = totalPages - 9;
         endPage = totalPages;
       } else {

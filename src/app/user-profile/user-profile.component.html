@@ -10,12 +10,12 @@
       <div class=" avatar"></div>
     </div>
     <div class="col-sm-1">
-      <a [routerLink]="['/user-profile']" id="userName">{{currentUser.email}}</a>
+      <a [routerLink]="['/user-profile/'+currentUser.id]" id="userName">{{currentUser.email}}</a>
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a [routerLink]="['/user-profile']">Profile</a>
+          <a [routerLink]="['/user-profile/'+currentUser.id]">Profile</a>
           <br/>
           <a [routerLink]="['/idea'] ">New Idea</a>
           <a href="">
@@ -38,31 +38,31 @@
     <hr>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">First Name</span>
-      <span class="col-sm-2 text-info" id="user-first-name">{{currentUser.firstName}}</span>
+      <span class="col-sm-2 text-info" id="user-first-name">{{user.firstName}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">Last Name</span>
-      <span class="col-sm-2 text-info">{{currentUser.lastName}}</span>
+      <span class="col-sm-2 text-info">{{user.lastName}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">Email</span>
-      <span class="col-sm-2 text-info">{{currentUser.email}}</span>
+      <span class="col-sm-2 text-info">{{user.email}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">Additionally</span>
-      <span class="col-sm-2 text-info">{{currentUser.aboutUser}}</span>
+      <span class="col-sm-2 text-info">{{user.aboutUser}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">Company</span>
-      <span class="col-sm-2 text-info">{{currentUser.aboutCompany}}</span>
+      <span class="col-sm-2 text-info">{{user.aboutCompany}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">City</span>
-      <span class="col-sm-2 text-info">{{currentUser.city}}</span>
+      <span class="col-sm-2 text-info">{{user.city}}</span>
     </div>
     <div class="form-group row justify-content-center">
       <span class="col-sm-2  gray-text text-right">Country</span>
-      <span class="col-sm-2 text-info">{{currentUser.country}}</span>
+      <span class="col-sm-2 text-info">{{user.country}}</span>
     </div>
     <div class="container">
       <!-- gallery -->

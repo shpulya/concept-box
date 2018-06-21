@@ -8,11 +8,11 @@
       <div class=" avatar"></div>
     </div>
     <div class="col-sm-1">
-      <a [routerLink]="['/user-profile']" id="userName" >{{email}}</a>
+      <a [routerLink]="['/user-profile/'+currentUser.id]" id="userName" >{{email}}</a>
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-          <a [routerLink]="['/user-profile']">Profile</a>
+          <a [routerLink]="['/user-profile/'+currentUser.id]">Profile</a>
           <br/>
           <a [routerLink]="['/idea'] "  >New Idea</a>
           <a href=""><hr/></a>
@@ -64,9 +64,9 @@
       </div>
     </div>
     <div class="form-group row justify-content-center">
-      <label for="ChooseTagsForIdea" class="col-sm-2 control-label">Choose tags</label>
+      <label for="ChooseTagsForIdea" class="col-sm-2 control-label">Choose tag</label>
       <div class="col-sm-5">
-        <select multiple class="form-control" id="ChooseTagsForIdea" [(ngModel)]="model.tags" #tags="ngModel" name="tagsSelector" >
+        <select  class="form-control" id="ChooseTagsForIdea" [(ngModel)]="model.tags" #tags="ngModel" name="tagsSelector" >
           <option *ngFor="let tag of tagsList " [value]="tag.name"> {{tag.name}}</option>
         </select>
       </div>

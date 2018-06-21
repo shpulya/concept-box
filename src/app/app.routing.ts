@@ -14,9 +14,10 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'user-profile', component: UserProfileComponent},
+    { path: 'user-profile/:userId', component: UserProfileComponent},
     { path: 'idea', component: IdeaComponent},
     { path: 'main-page', component: MainPageComponent},
+    { path: 'main-page/:tagId', component: MainPageComponent},
     { path: 'idea-detail/:id', component: IdeaDetailComponent},
     { path:"user-ideas/:userId", component: UserIdeasComponent},
     // otherwise redirect to home

@@ -10,12 +10,12 @@
       <div class=" avatar"></div>
     </div>
     <div class="col-sm-1">
-      <a [routerLink]="['/user-profile']" id="userName">{{currentUser.email}}</a>
+      <a [routerLink]="['/user-profile/'+currentUser.id]" id="userName">{{currentUser.email}}</a>
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownLogo" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a [routerLink]="['/user-profile']">Profile</a>
+          <a [routerLink]="['/user-profile/'+currentUser.id]">Profile</a>
           <br/>
           <a [routerLink]="['/idea'] ">New Idea</a>
           <a href="">

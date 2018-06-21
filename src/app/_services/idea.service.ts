@@ -24,7 +24,7 @@ export class IdeaService {
   }
 
   update(id:number, idea: Idea) {
-    return this.http.put(environment.apiUrl+'/api/v1/idea/' + idea.id, idea);
+      return this.http.put(environment.apiUrl+'/api/v1/idea/' + idea.id, idea);
   }
 
   delete(id: number) {
@@ -33,5 +33,9 @@ export class IdeaService {
 
   getIdeasByHeader(word: string){
     return this.http.get(environment.apiUrl+'/api/v1/getIdeasByHeader/'+word);
+  }
+
+  getIdeasByTag(tagId: number){
+    return this.http.get(environment.apiUrl+'api/v1/getIdeasByTag/'+tagId);
   }
 }

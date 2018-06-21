@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User, Idea} from '../_models/index';
 import {AlertService, UserService, IdeaService} from '../_services/index';
+import {Subscription} from 'rxjs/Subscription';
+
 
 @Component({
   moduleId: module.id.toString(),
@@ -12,10 +14,15 @@ export class UserProfileComponent implements OnInit {
   email: string;
   currentUser: User;
   ideas: any = [];
+  userId: number;
+  user: any = [];
+  private routeSubscription: Subscription;
 
-
-  constructor(private router: Router, private alertService: AlertService, private userService: UserService, private ideaService: IdeaService) {
+  constructor(private router: Router, private alertService: AlertService, private userService: UserService, private ideaService: IdeaService,private route: ActivatedRoute) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.routeSubscription = route.params.subscribe(params => this.userId = params['userId']);
+    this.userService.getById(this.userId).subscribe(user => {this.user = user});
+    //this.ideaService.getIdeasByUserId(this.userId).subscribe( ideas => {this.ideas = ideas; });
   }
 
   ngOnInit() {
@@ -25,7 +32,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   private LoadIdeasByUser() {
-    this.ideaService.getIdeasByUserId(this.currentUser.id).subscribe( ideas => {this.ideas = ideas; });
+    this.ideaService.getIdeasByUserId(this.userId).subscribe( ideas => {this.ideas = ideas; });
   }
 
 }

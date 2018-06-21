@@ -19,6 +19,7 @@ export class IdeaDetailComponent {
   currentUser: User;
   userId: number;
   author: any = {};
+  likeColor: string ;
   private routeSubscription: Subscription;
 
   constructor(
@@ -31,6 +32,11 @@ export class IdeaDetailComponent {
     this.email = this.currentUser.email;
     this.routeSubscription = route.params.subscribe(params => this.ideaId = params['id']);
     this.ideaService.getIdeaById(this.ideaId).subscribe(idea => {this.idea = idea;});
+    //this.userService.getById(this.idea.userId).subscribe(user => this.author = user);
+    this.likeColor = "#c7ccd6";
+
+
+
 
     //this.userService.getById(this.idea.userId).subscribe(author => {this.author=author;});
 
@@ -41,5 +47,9 @@ export class IdeaDetailComponent {
     //   this.author = user;
     // });
 
+  }
+
+  private setLikedColor() {
+    if ( this.likeColor == '#c7ccd6'){ this.likeColor ='#d15e84'}else { this.likeColor ='#c7ccd6'};
   }
 }

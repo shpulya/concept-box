@@ -2,7 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AlertService, UserService, IdeaService, TagsService} from '../_services';
 import {Idea, User, Tags} from '../_models';
-import { PagerService } from '../_services/index'
+import { PagerService } from '../_services/index';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   moduleId: module.id.toString(),
@@ -18,23 +20,33 @@ export class MainPageComponent implements OnInit {
   tags: any = [];
   pager: any = {};
   pagedItems: any[];
+  private routeSubscription: Subscription;
+  tagId: number = 0;
 
   constructor(
     private router: Router,
     private ideaService: IdeaService,
     private tagsService: TagsService,
     private alertService: AlertService,
-    private pagerService: PagerService) {
+    private pagerService: PagerService,
+    private route: ActivatedRoute) {
+    this.routeSubscription = route.params.subscribe(params => this.tagId = params['tagId']);
     //this.email = (atob(JSON.parse(localStorage.getItem('currentUser')))).split(':')[0];
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.email = this.currentUser.email;
-  }
+    console.log(this.tagId);
 
-  ngOnInit() {
     this.loadAllIdeas();
     this.loadBestIdeas();
     this.loadTags();
-    
+
+  }
+
+  ngOnInit() {
+
+      //this.loadIdeasByTag(this.tagId);
+
+
   }
 
   setPage(page: number) {
@@ -62,17 +74,20 @@ export class MainPageComponent implements OnInit {
     this.tagsService.getAllTags().subscribe(tags => this.tags = tags);
   }
 
-  private loadIdeasByTag(tagName){
+  private loadAllIdeasByTag(tagId) {
+    this.ideaService.getIdeasByTag(tagId).subscribe(ideas => {
+      this.ideas = ideas;
+      this.setPage(1);
 
-  }
-  private searchIdeaByHeader() {
-    //searchText = searchText.toLowerCase();
-    if (this.searchText != null ) {
-      this.ideaService.getIdeasByHeader(this.searchText).subscribe( ideas => this.ideas = ideas);
-    }
-    else {
-      this.loadAllIdeas();
-    }
+    });
   }
 
-}
+  private loadBestIdeasByTag(tagId) {
+    this.ideaService.getIdeasByTag(tagId).subscribe(ideas => {
+      this.bestIdeas = ideas;
+    });
+  }
+
+  }
+
+
