@@ -9,4 +9,4 @@ To run aplication you need:
    6.1. npm install
    6.2. ng serve --open
   
-back-end side - https://github.com/EvaSokol/April (DB - postgres, )
+back-end side - https://github.com/EvaSokol/April (JDK, Maven, PostgreSQl)
