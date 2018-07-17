@@ -48,10 +48,9 @@ center {
 
 
 .avatar{
-
   width: 10rem;
   height: 10rem;
-  background-image:url("assets/img/photo.png");
+  background-image:url("assets/img/avatar.jpg"), url("assets/img/photo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -81,6 +80,16 @@ tr, span{
   text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, a {
+  color: #5a6268;
   text-decoration:none !important;
+}
+
+.carousel-item-img {
+  object-fit: cover;
+}
+
+.wrapper{
+
+  width: 100%;
 }

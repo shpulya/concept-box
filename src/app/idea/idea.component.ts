@@ -43,7 +43,7 @@ export class IdeaComponent  implements OnInit{
     this.loading = true;
     this.model.userId = this.currentUser.id;
     this.model.status = "NEW";
-    //this.model.tags = JSON.stringify(this.model.tags, null);
+    this.model.tags = this.model.tags.toString();
 
 
     console.log(this.model);
@@ -53,7 +53,7 @@ export class IdeaComponent  implements OnInit{
       .subscribe(
         data => {
           this.alertService.success('Idea was created successfully!', true);
-          this.router.navigate(['/user-profile']);
+          this.router.navigate(['/user-profile/'+this.currentUser.id]);
         },
         error => {
           this.alertService.error(error);

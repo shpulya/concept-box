@@ -68,7 +68,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 mb-4" *ngFor="let popularIdea of ideas | filter: 'header' : searchText.value">
             <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400/d0eced" alt=""></a>
+              <a href="#"><img class="card-img-top" src="../assets/img/image.jpg" alt=""></a>
               <div class="card-body">
                 <h4 class="card-title">
                   <a [routerLink]="['/idea-detail/'+popularIdea.id]">{{popularIdea.header}}</a>
@@ -96,7 +96,7 @@
           <div class="row">
             <div class="col-md-7">
               <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300/e5d0ef" alt="">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="../assets/img/odessa.jpg" alt="">
               </a>
             </div>
             <div class="col-md-5">
